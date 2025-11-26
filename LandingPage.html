@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AULIA GROSIR</title>
+
+    <style>
+        /* Ini adalah internal css */
+        /* Tombol scroll ke atas */
+#btnUp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #ff6fb3;
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    display: none; /* awalnya disembunyikan */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+#btnUp:hover {
+    background-color: #ff3c93;
+    transform: scale(1.1);
+}
+
+        header {
+            background-color: rgb(236, 148, 182);
+            color: rgb(114, 5, 41);
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        nav {
+            background-color: rgb(241, 171, 220);
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: firebrick;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            color: rgb(243, 19, 19);
+        }
+
+        nav a.active {
+            color: white;
+            background-color: rgb(243, 82, 144);
+            padding: 5px 8px;
+            border-radius: 5px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px;
+            height: 400px;
+            color: brown;
+            text-shadow: 2px 2px 5px white;
+            background: url("https://wallpapers.com/images/featured-full/taylor-swift-lover-aesthetic-qjdlea6gm0t1c1ca.jpg") no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Layanan hover */
+        .services {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .service {
+            flex: 1;
+            min-width: 250px;
+            background: pink;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 5px rgb(128, 0, 38);
+            transition: 0.3s;
+        }
+
+        .service:hover {
+            background-color: rgb(255, 192, 231);
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .service h3 {
+            color: #f54b8c;
+        }
+
+        /* Tentang - background lucu */
+        #tentang {
+            background: url('https://i.pinimg.com/736x/30/27/2d/30272d5f9aef12640add3521dc1a4294.jpg') repeat;
+            background-size: 200px;
+            border-radius: 15px;
+            padding: 30px;
+            color: rgb(78, 4, 43);
+            box-shadow: 0px 0px 10px pink;
+        }
+
+        form {
+            background-color: antiquewhite;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 5px;
+            margin: 10px 0;
+            border: 1px solid #f7d6ef;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #f88ddd;
+            color: #24030f;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #f54b8c;
+        }
+
+        footer {
+            text-align: center;
+            color: rgba(15, 1, 2, 0.945);
+            padding: 10px 0;
+            margin-top: 30px;
+            background-color: #ff6fb3;
+        }
+         /* ██████████████████████████████████
+           PRODUK (GROSIR)
+        ██████████████████████████████████*/
+        #produk {
+            background-color: rgb(255, 233, 244);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px pink;
+        }
+
+        .produk-list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .produk-card {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0px 0px 10px pink;
+            transition: 0.3s;
+        }
+
+        .produk-card:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+            background-color: #ffe6f2;
+        }
+
+        .produk-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .produk-card h3 {
+            color: rgb(219, 42, 113);
+        }
+        .btn-wa {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-wa:hover {
+    background-color: #1b994e;
+}
+
+    </style>
+</head>
+<body>
+
+   <header id="beranda" style="display:flex; align-items:center; justify-content:center; gap:25px;">
+    
+  
+    <img src="images/foto_lia.jpeg" 
+         alt="Foto Aulia"
+         style="
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 8px rgba(0,0,0,0.3);
+         ">
+
+    <div>
+        <h1>Selamat Datang di Web AULIA GROSIR</h1>
+        <p>Karena Do'a Ibu, Sepanjang masa</p>
+    </div>
+
+</header>
+
+
+    <nav>
+        <a href="#beranda">Beranda</a>
+        <a href="#produk">Produk</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#kontak">Kontak</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Selamat Datang di Website kami</h1>
+    </section>
+<!-- ██████ PRODUK GROSIR ██████ -->
+<section class="container" id="produk">
+    <h2 style="text-align:center;">Produk Grosir Kami</h2>
+
+    <div class="produk-list">
+        
+        <div class="produk-card">
+            <img src="images/soklin.jpg">
+            <h3>Paket Grosir dan Ecer Pembersih Pakaian</h3>
+            <p>Isi 10 Pembersih Pakaian.</p>
+            <b>Rp 85.000</b><br><br>
+
+            <a 
+               href="https://wa.me/6281992653409?text=Halo,%20saya%20mau%20pesan%20Paket%20Snack%20Grosir"
+               target="_blank"
+               class="btn-wa">
+               Hubungi via WhatsApp
+            </a>
+        </div>
+ <div class="produk-card">
+            <img src="images/tesgambar.jpg">
+            <h3>Paket Snack Grosir</h3>
+            <p>Isi 50 pcs berbagai snack favorit.</p>
+            <b>Rp 85.000</b><br><br>
+
+            <a 
+               href="https://wa.me/6281992653409?text=Halo,%20saya%20mau%20pesan%20Paket%20Snack%20Grosir"
+               target="_blank"
+               class="btn-wa">
+               Hubungi via WhatsApp
+            </a>
+        </div>
+ <div class="produk-card">
+            <img src="images/sembako.jpg">
+            <h3>Paket Sembako Lengkap</h3>
+            <p>Isi 1 kg Beras, 2 Liter MInyak Goreng dan 8 Mie Instan </p>
+            <b>Rp 120.000</b><br><br>
+
+            <a 
+               href="https://wa.me/6281992653409?text=Halo,%20saya%20mau%20pesan%20Paket%20Snack%20Grosir"
+               target="_blank"
+               class="btn-wa">
+               Hubungi via WhatsApp
+            </a>
+        </div>
+ <div class="produk-card">
+            <img src="images/ciki.jpg">
+            <h3>Paket Pacel Lebaran</h3>
+            <p>Isi 50 pcs Parcel Lebaran</p>
+            <b>Rp 155.000</b><br><br>
+
+            <a 
+               href="https://wa.me/6281992653409?text=Halo,%20saya%20mau%20pesan%20Paket%20Snack%20Grosir"
+               target="_blank"
+               class="btn-wa">
+               Hubungi via WhatsApp
+            </a>
+        </div>
+
+        <div class="produk-card">
+            <img src="images/minuman.jpg">
+            <h3>Paket Minuman Cup</h3>
+            <p>1 Dus (isi 24 cup) aneka rasa.</p>
+            <b>Rp 52.000</b><br><br>
+
+            <a 
+               href="https://wa.me/6281992653409?text=Halo,%20saya%20mau%20pesan%20Paket%20Minuman%20Cup"
+               target="_blank"
+               class="btn-wa">
+               Hubungi via WhatsApp
+            </a>
+        </div>
+
+        <div class="produk-card">
+            <img src="images/sayur.jpg">
+            <h3>Paket Sayur dan Buah</h3>
+            <p>Isi Berbagai Sayuran dan Buah</p>
+            <b>Rp 90.000</b><br><br>
+
+            <a 
+               href="https://wa.me/6281992653409?text=Halo,%20saya%20mau%20pesan%20Paket%20Minuman%20Cup"
+               target="_blank"
+               class="btn-wa">
+               Hubungi via WhatsApp
+            </a>
+        </div>
+
+    </div>
+</section>
+
+   <!-- LAYANAN -->
+<section class="container" id="layanan">
+    <h2 style="text-align: center;">Layanan Kami</h2>
+    <div class="services">
+        
+        <div class="service">
+            <h3>Grosir & Ecer</h3>
+            <p>Melayani pembelian produk secara grosir maupun eceran dengan harga terjangkau.</p>
+        </div>
+
+        <div class="service">
+            <h3>Paket Usaha</h3>
+            <p>Menyediakan paket snack, minuman, dan sembako untuk kebutuhan usaha rumahan.</p>
+        </div>
+
+        <div class="service">
+            <h3>Pengiriman Cepat</h3>
+            <p>Order hari ini, dikirim di hari yang sama (wilayah tertentu).</p>
+        </div>
+
+    </div>
+</section>
+
+    <!-- TENTANG -->
+    <section class="container" id="tentang">
+        <h2 style="text-align:center;">Tentang Kami</h2>
+        <p><b>Visi:</b> Menjadi perusahaan layanan paling dicintai masyarakat Indonesia karena ketulusan, kualitas, dan pelayanan terbaik.</p>
+        <p><b>Misi:</b></p>
+        <ul>
+            <li>Mengutamakan pelayanan ramah & cepat.</li>
+            <li>Memberikan solusi terbaik untuk kebutuhan pelanggan.</li>
+            <li>Mengembangkan inovasi layanan setiap tahun.</li>
+            <li>Menjadi perusahaan yang amanah dan profesional.</li>
+        </ul>
+    </section>
+
+    <!-- KONTAK -->
+    <section class="container" id="kontak">
+        <h2>Hubungi kami</h2>
+        <form>
+            <label>Nama</label>
+            <input type="text" placeholder="Masukkan nama Anda">
+
+            <label>Email</label>
+            <input type="email" placeholder="Masukkan email Anda">
+
+            <label>Pesan</label>
+            <textarea rows="5" placeholder="Tulis pesan Anda di sini"></textarea>
+
+            <button id="btnKirim" type="button">Kirim</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Aulia Grosir</p>
+    </footer>
+
+    <!-- SCRIPT: Scroll ke paling atas -->
+    <script>
+        // Scroll ke atas saat klik tombol Kirim
+        document.getElementById("btnKirim").onclick = function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        };
+    </script>
+
+</body>
+<button id="btnUp">↑</button>
+
+</html>
+<script>
+    // tombol panah
+    let btnUp = document.getElementById("btnUp");
+
+    // muncul ketika discroll ke bawah 200px
+    window.onscroll = function () {
+        if (document.documentElement.scrollTop > 200) {
+            btnUp.style.display = "block";
+        } else {
+            btnUp.style.display = "none";
+        }
+    };
+
+    // fungsi klik tombol panah
+    btnUp.onclick = function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+</script>
